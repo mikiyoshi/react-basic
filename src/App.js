@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+
+const Article = (props) => {
+  return (
+    <div>
+      title: {props.title} / content: {props.content}
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Article
+        title={'this is props title'}
+        content={'this is props content'}
+      />
+      <Article
+        title={'this is props title2'}
+        content={'this is props content2'}
+      />
+      <Article
+        title={'this is props title3'}
+        content={'this is props content3'}
+      />
     </div>
   );
 }
