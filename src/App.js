@@ -5,14 +5,14 @@ import {
   Counter,
   BadCounter,
   ToggleButton,
-} from './compornents';
+} from './components';
 // why we use props and state, we don't use DOM instead of props and state
 //
 // props: argument 引数
-// state: value inside compornents コンポーネント内で宣言、制御される値
-// props can't edit inside compornents
+// state: value inside components コンポーネント内で宣言、制御される値
+// props can't edit inside components
 // if u want to edit props, u can edit original props 親から受け取ったpropsは更新できないけど、親自身が更新することは可能
-// state pass to props can edit stateをpropsに渡す（stateは更新可能なので、porpsの代わりにstateをpropsとして扱う）
+// state pass to props can edit stateをpropsに渡す（stateは更新可能なので、propsの代わりにstateをpropsとして扱う）
 //
 //
 // const Article = (props) => {
