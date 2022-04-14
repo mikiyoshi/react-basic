@@ -1,5 +1,11 @@
 import './App.css';
-import { Article } from './compornents';
+import {
+  Article,
+  TextInput,
+  Counter,
+  BadCounter,
+  ToggleButton,
+} from './compornents';
 // why we use props and state, we don't use DOM instead of props and state
 //
 // props: argument 引数
@@ -54,6 +60,10 @@ function App() {
         title={'this is props title'}
         content={'this is props content'}
       />
+      <TextInput />
+      <Counter />
+      <BadCounter />
+      <ToggleButton />
       {/* <Article
         title={'this is props title'}
         content={'this is props content'}
