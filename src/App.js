@@ -6,6 +6,7 @@ import {
   BadCounter,
   ToggleButton,
 } from './components';
+import React, { useEffect, useState } from 'react';
 // why we use props and state, we don't use DOM instead of props and state
 //
 // props: argument 引数
@@ -52,10 +53,38 @@ import {
 // };
 //
 // export {default as Article} from './Article'
-
 function App() {
+  const [name, setName] = useState('');
+  const [id, setId] = useState('mikiyoshi');
+  const ids = ['mikiyoshi', 'deatiger', 'aws', 'google', 'facebook'];
+  const getRandomId = () => {
+    const _id = ids[Math.floor(Math.random() * ids.length)];
+    // [id, setId] update, id is random
+    setId(_id);
+  };
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${id}`)
+      .then((res) => res.json())
+      // this data is Object
+      .then((data) => {
+        console.log(data);
+        // [name, setName] update
+        setName(data.name);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [id]);
   return (
     <div>
+      <p>
+        {/* {id} from [id, setId], {name} from [name, setName] */}
+        {/* when page reload {name} is blank, cos useEffect takes time to get from API */}
+        {/* 初回{name}が表示されないのは、useEffectのAPIデータ受け取りまでに時間がかかるから */}
+        {id} is Github {name}
+      </p>
+      {/* this button onClick update random [id, setId] */}
+      <button onClick={getRandomId}>Update Id</button>
       <Article
         title={'this is props title'}
         content={'this is props content'}
